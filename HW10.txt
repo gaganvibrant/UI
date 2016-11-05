@@ -1,0 +1,150 @@
+
+Subject : UIClass-July-7-2016 Homework 10 <Name>
+
+1) understand java script data types?
+JavaScript is known for Dynamic typing / Loosely typed (We can have same variable as different types).
+values of these types known as primitive values.
+All types except objects define immutable values (values, which are incapable of being changed)
+ primitive datatypes:
+Boolean
+Boolean represents a logical entity ;contains only two values: true, false.
+
+Null
+ Null type has exactly one value: null. 
+
+Undefined
+A variable that has not been assigned a value has the value undefined. 
+
+Number
+number type has three symbolic values: +Infinity, -Infinity, and NaN (not-a-number).
+Number object represents numerical date, either integers or floating-point numbers.
+var val = new Number(number);
+
+String
+ String type is used to represent textual data
+ JavaScript strings are immutable.
+When representing complex data, parse strings and use the appropriate abstraction.
+
+Symbol (new in ECMAScript 6)
+A Symbol is a  unique and immutable primitive value and may be used as the key of an Object property.
+This is same as  enumerations (enum) in C
+
+Non primitive datatype:
+Object  :objects can be seen as a collection of properties.
+JavaScript objects are written with curly braces.
+Object properties are written as name:value pairs, separated by commas.
+var user = {firstName:"sawan", lastName:"kumar", age:26, eyeColor:"brown"};
+
+
+2) diff between null and undefined?
+Null type
+The Null type has exactly one value: null. 
+
+Undefined type
+A variable that has not been assigned a value has the value undefined.
+Example
+var emp = null;           // Value is null, but type is still an object
+
+You can also empty an object by setting it to undefined:
+Example
+var emp= undefined;     // Value is undefined, type is undefined
+
+
+3) == and === in java script
+By using == you check if something is equal to something else. This is not strict
+The 3 equal signs mean "equality without type coercion". Using the triple equals, the values must be equal in type as well.
+0 == false   // true
+0 === false  // false, because they are of a different type
+1 == "1"     // true, automatic type conversion for value only
+1 === "1"    // false, because they are of a different type
+null == undefined // true
+null === undefined // false
+'0' == false // true
+'0' === false // false
+
+
+4) how to include java script into web pages?
+//http://people.clarkson.edu/~vdubrovs/xxx/javascript/js_tutorial/js_to_html.htm
+1.
+External script
+
+In  External script we will write scripts in seperate  .js files. 
+Just use <script> with an src attribute pointing to the script file, using its URL as shown below:
+
+<html>
+
+   <head>
+      <script type="text/javascript" src="filename.js" ></script>
+   </head>
+   
+   <body>
+      .......
+   </body>
+</html>
+2.Internal JavaScript: we can add JavaScript code between <script> tags rather than providing an src attribute.
+
+<script>
+window.addEventListener('load', function () {
+  console.log('This function is executed once the page is fully loaded');
+});
+</script>
+
+3.Inline:
+ex1: 
+<input type="button" id="hello" value="Hello" 
+onClick = "document.write('<center><h1>Hello World!</h1></center>')">
+ex2:
+<input type="button" id="hello" value="Hello" onClick = "window.alert('Hello World!')">
+
+
+
+5) why do we need use java script?
+All browsers have JavaScript interpreters built in. No other languages have this tremendous advantage, and it's unlikely this will change soon.
+JavaScript is a pretty darn nice language once you get past the little annoyances. If you have a hard time swallowing the shortcomings, try CoffeeScript, it's pretty!
+Functions as objects is extremely, extremely powerful. Programming JavaScript is like throwing around super-intelligent play-doh that can be re-molded mid-air.
+There is not one, but THREE ultra-fast JavaScript engines around (FireFox SpiderMonkey, Google V8 and Safari JavaScriptCore) and they are all fiercely competing to become faster and faster
+JavaScript is very easy to implement. All you need to do is put your code in the HTML document and tell the browser that it is JavaScript.
+JavaScript works on web users’ computers — even when they are offline!
+JavaScript allows you to create highly responsive interfaces that improve the user experience and provide dynamic functionality, without having to wait for the server to react and show another page.
+JavaScript can load content into the document if and when the user needs it, without reloading the entire page — this is commonly referred to as Ajax.
+JavaScript can test for what is possible in your browser and react accordingly — this is called Principles of unobtrusive JavaScript or sometimes defensive scripting.
+JavaScript can help fix browser problems or patch holes in browser support — for example fixing CSS layout issues in certain browsers. // doubt in few.
+
+
+6) different types of including java script
+1.
+External script
+
+In  External script we will write scripts in seperate  .js files. 
+Just use <script> with an src attribute pointing to the script file, using its URL as shown below:
+
+<html>
+
+   <head>
+      <script type="text/javascript" src="filename.js" ></script>
+   </head>
+   
+   <body>
+      .......
+   </body>
+</html>
+2.Internal JavaScript: we can add JavaScript code between <script> tags rather than providing an src attribute.
+
+<script>
+window.addEventListener('load', function () {
+  console.log('This function is executed once the page is fully loaded');
+});
+</script>
+
+3.Inline:
+ex1: 
+<input type="button" id="hello" value="Hello" 
+onClick = "document.write('<center><h1>Hello World!</h1></center>')">
+ex2:
+<input type="button" id="hello" value="Hello" onClick = "window.alert('Hello World!')">
+
+
+7) best practices as well in java script?
+Minimize the use of global variables.
+This includes all data types, objects, and functions.
+Global variables and functions can be overwritten by other scripts.
