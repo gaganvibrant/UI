@@ -1,0 +1,55 @@
+
+Subject : UIClass-August-24-2016 HomeWork 13 <Name>
+
+1) java script call apply bind methods? how to use them? what are the use cases when we have to use them?
+
+var lastName = 'global';
+var obj = {
+	lastName : 'local prop of obj',
+	getLastName : function() {
+		return this.lastName;
+	}
+}
+console.log(obj.getLastName());// obj --> this key word within getLastName function.
+var newFunc = obj.getLastName;
+console.log(newFunc());// this keyword within newFunc --> window
+
+window --> global object 
+
+all global (variables or functions) are attached to be a properties to the window object.
+
+
+this keyword --> 
+
+objectName.func1();
+
+obj.getLastName() --> if you encounter this keyword in getLastName --> it refers to obj 
+
+functionName.call(ObjName)--> we are forcefully replacing the value of 'this' keyword with ObjName
+
+functionName.apply(ObjName)--> we are forcefully replacing the value of 'this' keyword with ObjName
+
+call --> we can pass the parameters as comma seperated values
+
+apply --> We can pass the paramters as an array.
+
+.bind(this);
+
+both call and apply --> will execute the function immediately
+
+// this keyword is being replaced by {lastName:'java script'}
+			function multiply(a,b) {
+				return this.c * this.d * a * b;
+			}
+			var obj2 = {c : 3, d :4}
+			console.log(multiply.call(obj2, 2, 5));
+			var arr = [2, 5];
+			console.log(multiply.apply(obj2, arr)); 
+
+			var newMul = multiply.bind(obj2); 
+			// we are creating a new function, permanently we are changing the value of this keyword to obj2 
+
+			console.log(newMul(2,3))
+
+.bind(objName) // we are creating a new function, permanently we are changing the value of this keyword to objName
+

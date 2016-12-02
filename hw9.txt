@@ -1,0 +1,122 @@
+Subject : UIClass-August-24-2016 HomeWork 9 <Name>
+
+1) operational precedence
+Main objective of operator precedence is to determine the order in which operators to be evaluated.Always operators with higher precedence will be evaluated first.
+()
+* / 
++ - left to right
+-----------------------------
+( … ) . [  ] new functioncall new ++ -- ! ~  uninaryplus unarynegation   -  ++  --   typeof   void   delete  **  *  / %  +   - << >>    >>>  <   <=  >  >=  in  instanceof  ==  !=  ====   !== &  bitwiseXOR   bitwiseor  &&  logicalOR ?stmt1:stmt2
+=  +=   -=  **=  *=   /=  %=    <<=   >>=   >>>=   &=      yield yield*   spread  comma/sequence
+20	Grouping	n/a	( … )
+
+2) differences between == and ===
+differences between != and !==
+
+By using == you check if something is equal to something else. This is not strict
+The 3 equal signs mean "equality without type coercion". Using the triple equals, the values must be equal in type as well.
+0 == false   // true
+0 === false  // false, because they are of a different type
+1 == "1"     // true, automatic type conversion for value only
+1 === "1"    // false, because they are of a different type
+null == undefined // true
+null === undefined // false
+'0' == false // true
+'0' === false // false
+
+
+3) diff null and undefined
+Null type
+The Null type has exactly one value: null. 
+
+Undefined type
+A variable that has not been assigned a value has the value undefined.
+Example
+var emp = null;           // Value is null, but type is still an object
+
+You can also empty an object by setting it to undefined:
+Example
+var emp= undefined;     // Value is undefined, type is undefined
+
+4) loop (for, while and do while) and conditons (if else, switch).
+
+if else:
+it allows a code to print a statement if given conditions is true, and if condition is false then it prints else statement
+if(condition) {
+	console.log('The conditon is true')
+} else {
+	console.log('The conditon is false')
+}
+----------------------------------------------------------------------
+while: Statements inside the while bock will be executed repeatedly until the given conditions becomes false.
+while(condition) {
+	//stmts;
+}
+
+statements will be constinuosly executed when condition is true.
+it will terminate the loop if condition id false.
+
+var i=0;
+while(i<10) {
+	console.log(i);
+	i++;
+}
+----------------------------------------------------------------------
+
+for: statements  inside for loop will be executed  repeatedly until the given conditions becomes false.
+for(intialization i=1; condition i< 8 ..; increment/decrement i++/i--- ..) {
+	//stmts; 
+}
+
+syntax: for(exp;condition;inc/dec)
+{
+	statement
+}
+
+--------------------------------------------------------------------
+
+DO-WHILE LOOP :
+Same as while loop , Statements inside the do while bock will be executed repeatedly until the given conditions becomes false.
+Atleast once statement will be executed.
+syntax : do
+         {
+	        statement
+          }            
+            while(condition)
+
+
+
+--------------------------------------------------------------------
+
+SWITCH CASE
+The switch expression is evaluated once.
+The value of the expression is compared with the values of each case.
+If there is a match, the associated block of code is executed.
+Otherwise default  code block will be executed.
+  
+    switch(expression) {
+    case n:
+        code block
+        break;
+    case m:
+        code block
+        break;
+    default:
+        default code block
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

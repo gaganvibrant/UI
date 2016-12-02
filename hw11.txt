@@ -1,0 +1,82 @@
+Subject : UIClass-August-24-2016 HomeWork 11 <Name>
+
+1) explain about arr.forEach and arr.map . compare the differences?
+arr.forEach(function(item, index, arr) {
+	
+})
+	--> in for Each the function is executed for each item in the array 
+	--> item --> item in an array
+	--> index --> index of this item
+	--> arr --> this the complete array.
+
+arr.map(function(item, index, arr) {
+	
+})
+	--> in for Each the function is executed for each item in the array 
+	--> item --> item in an array
+	--> index --> index of this item
+	--> arr --> this the complete array.
+
+	--> additionaly --> it creates a new array out of returned values from within the map.
+
+2) object and object methods (.hasOwnProperty(item))
+how to check if a property key(name) exists ?
+		--> objectName.hasOwnProperty('propertyKey')
+			--> if true --> propertyKey exists
+			--> if false --> propertyKey doesnot exist on the object.
+
+
+3) diff ways of creating an object
+var obj = {};// creating an empty object
+	var person1 = {
+		firstName : 'java',
+		lastName : 'script', 
+		age : 34,
+		weight: 145.0,
+		height: 183, 
+		isGraduated : true, 
+		address : {
+			street : 'abc st',
+			zip : '92912',
+			state : 'NY'
+		},
+		friends : ['fr1', 'fr2', 'fr3']
+	}
+
+	--> property (key value pair)--> key and value are seperated by :
+	--> key will always be a string 
+	--> properties are seperated by a ,
+	--> values --> can be any java script data types
+
+
+4) understand about properties in object. look into about adding property, delete a property, edit property value, check if a property exists?
+how to add a property ?
+		--> objName.newPropertyKey = "value";
+		--> objName['newPropertyKey'] = "value";
+
+	how to update an existing property value?
+		--> objName.existingPropertyKey = "value";
+		--> objName['existingPropertyKey'] = "value";
+
+	how to read a property value
+		--> objName.existingPropertyKey
+		--> objName['existingPropertyKey']
+
+	how to delete a property value
+		--> delete objName.existingPropertyKey
+		--> delete objName['existingPropertyKey']	
+
+5) what is prototype in object
+Every JavaScript object has a prototype. The prototype is also an object.
+All JavaScript objects inherit their properties and methods from their prototype.
+Objects created using an object literal, or with new Object(), inherit from a prototype called Object.prototype.
+Objects created with new Date() inherit the Date.prototype.
+The Object.prototype is on the top of the prototype chain.
+All JavaScript objects (Date, Array, RegExp, Function, ....) inherit from the Object.prototype.
+
+
+
+	
+
+	
+	

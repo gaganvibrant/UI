@@ -1,0 +1,96 @@
+Subject : UIClass-August-24-2016 HomeWork 12 <Name>
+
+1) constructor? and new key word? why do we use it?
+2) instanceof
+3) prototype?
+4) this key word
+
+
+1)constructor:
+It is possible to instantiate an object using constructor.
+there are two types of constructors  :
+1. native constructor
+2.custom constructor
+
+1.native constructors will be available automatically in the runtime execution like Array and Object.
+
+2.custom constructor will be defined by the user  and in which the properties and methods are also defined by the user.
+
+new keyword:
+
+new keyword is used to create an object
+
+syntax:
+new constructor[([arguments])]
+
+-----------------------------------------------------
+
+2) instanceof
+
+
+it checks whether the object is created by a given constructor
+it checks the current object and returns true if the object is of the specified object type.
+
+-----------------------------------------------------
+3)Prototype:
+
+Every JavaScript object has a prototype. The prototype is also an object.
+All JavaScript objects inherit their properties and methods from their prototype.
+Object.prototype is the super of all prototypes.
+we can create prototype of an object using a constructor.
+we can also create a prototype of an  using this keyword
+
+we can add new property using the prototype to existing function using
+
+functionName.prototype.propertyName ="value";
+
+-----------------------------------------------------
+
+4)this keyword:
+ It has some differences between strict mode and non-strict mode.
+this keyword can be used in two contexts
+1.global context
+2.function context
+
+1. Global context
+in global context it refers to the global object.
+
+2.Function context:
+In function context this refers based on the function values.
+-not in strict mode  :this will default to the global object.
+-in strict mode, if this was not defined by the execution context, it remains undefined.
+
+call, or apply:
+To pass the value of this from one context to another we can use call or apply.
+Call and apply:
+Where a function uses the this keyword in its body, its value can be bound to a particular object in the call using the call or apply methods which all functions inherit from Function.prototype.
+function add(c, d){
+  return this.a + this.b + c + d;
+}
+
+var o = {a:1, b:3};
+
+// The first parameter is the object to use as
+// 'this', subsequent parameters are passed as 
+// arguments in the function call
+add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16
+
+// The first parameter is the object to use as
+// 'this', the second is an array whose
+// members are used as the arguments in the function call
+add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34
+
+------------------------------------------
+Bind:
+ Function.prototype.bind. Calling f.bind(someObject) creates a new function with the same body and scope as f, but where this occurs in the original function, in the new function it is permanently bound to the first argument of bind, regardless of how the function is being used.
+function f(){
+  return this.a;
+}
+
+var g = f.bind({a:"azerty"});
+console.log(g()); // azerty
+
+var o = {a:37, f:f, g:g};
+console.log(o.f(), o.g()); // 37, azerty
+
+Reference:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
