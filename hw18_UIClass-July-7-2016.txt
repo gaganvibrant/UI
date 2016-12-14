@@ -1,0 +1,225 @@
+UIClass-July-7-2016 Homework 18 <Name>
+
+1)More examples of java script hoisting :
+
+Ex1:
+<!doctype html>
+<html>
+    <script>
+hello();
+hello2();
+function hello(){
+    (this == window)?console.log(true):
+    console.log(false);
+}
+var hello2=function(){
+    (this==window)?console.log(true):
+    console.log(false);
+};
+
+    </script>
+    </html>
+
+In the above example hello() gives the output as true but hello2 returns as "uncaught type error" because hoisting is not applicable for variable functions.
+Hoisting is only applicable for declaration and not applicable for initialization.
+
+Ex2:
+<!doctype html>
+<html>
+    <script>
+
+var myvar= 'my global value';
+
+(function(){
+    alert(myvar);
+    var myvar='local value';
+    alert(myvar);
+})();
+
+    </script>
+    </html>
+In Ex2 will give this output: undefined,localvalue
+
+It will consider the above code as shown below:
+
+------------------------------
+
+(function(){
+var myvar;//hoisting is applicable for only declaration.
+alert(myvar);
+ myvar='local value';//initialization will not move to the top(hoisting is not applicable for initialization.
+    alert(myvar);
+})();
+
+
+-----------------------------
+
+
+Ex3:
+  newFunction returns output as "uncaught TypeError:newFunction is not function(..)
+<!doctype html>
+<html>
+    <script>
+(function(){
+    newFunction();
+
+    var  newFunction = function(){
+    alert('hello usa');
+    };
+     //newFunction();
+})();
+
+    </script>
+    </html>
+
+If we use newFunction after variable function declaration and initialization it will give the output as "hello usa".
+
+2) Html dom events reference, practice with examples :
+DOM Events will notify code of interesting things that have taken place. Each event is represented by an object which is based on the Event interface, and may have additional custom fields and/or functions used to get additional information about what happened.There are several types of HTML DOM events. Below I have mentioned few of them:
+mouse events, keyboard events, frame/object events, form events, drag events, media events, animation events, etc.
+We can add event listeners by using attributes or by using selectors.
+
+Mouse Events:
+1)ondblclick Event: this event occurs when the user double-clicks on the element. For example:
+=========
+<!doctype html>
+<html></html>
+<body>
+    <p ondblclick="myFunction()">Please Double-click on this paragraph !!.</p>
+
+<script>
+    function myFunction() {
+      alert( "Hello World");
+    }
+</script>
+
+</body>
+
+=========
+It will gives alert msg as:  "Hello World" when the user double clicks on given statement "Please Double-click on this paragraph !!".
+
+
+2)onmousedown Event: it occurs when the user presses the button over an element. For instance:
+
+<body>
+    <p id="P1" onmousedown="mouseDown()" >
+     Please Click on this  text!
+</p>
+<script>
+    function mouseDown() {
+        document.getElementById("P1").style.color = "green";
+    }
+
+</script>
+
+</body>
+
+In this example  , when user presses on text: "Please Click on this  text!", text  will turn into green color text.
+==============================
+
+Keyboard Events: 
+1)onkeypress:  this event occurs when the user presses the key on the keyboard. 
+For instance:
+<body>
+   <p> Press a key in the input field.</p>
+
+<input type="text" onkeypress="myFunction()">
+
+<script>
+    function myFunction() {
+        alert(" You have entered a key inside the input field");
+    }
+</script>
+</body>
+
+When user enters some key inside the text field it will give alert msg as "You have entered a key inside the input field".
+
+2)onkeydown: this event occurs when the user is pressing a key on the keyboard.
+<body>
+   <p> Press a key in the input field.</p>
+
+<input type="text" onkeydown="myFunction()">
+
+<script>
+    function myFunction() {
+        alert("You pressed a key inside the input field");
+    }
+</script>
+</body>
+
+The only  difference between KeyDown and KeyPress is that KeyPress relays the character resulting from a keypress, and is only called if there is one.
+KeyPress occurs in between KeyDown and KeyUp, not after KeyUp.
+Examples of keys that do not directly result in calls to KeyPress:
+
+    Shift, Ctrl, Alt
+    F1 through F12
+    Arrow keys
+
+==================================
+
+Frame/Object Events:
+onerror Event: this event is triggered when error occurs while loading an external file: document or an image;
+1)<body>
+  		<img src="image.gif" onerror="myFunction()">
+
+<script>
+   		 function myFunction() {
+     		   alert('The image could not be loaded.');
+    		}
+</script>
+
+When the loading image fails then the error alert message pops up saying image could not be loaded. 
+
+2)onload Event:  This event is most often used with the <body> element to execute a script once a web page has been completely loaded all the content. 
+Executes a JavaScript immediately after a page has been loaded.
+
+<body onload="myFunction()">
+
+<h1>Hello World!</h1>
+
+<script>
+    function myFunction() {
+        alert("Page is loaded");
+    }
+</script>
+
+</body>
+
+In this example , it gives alert msg "Page is loaded" after page has been loaded.
+==================================================
+Form Events: 
+1)onreset Event: this event occurs when a form is reset.
+
+<body>
+
+<form onreset="myFunction()">
+  Enter name: <input type="text">
+  <input type="reset">
+</form>
+
+<script>
+    function myFunction() {
+        alert("Text field has been reset");
+    }
+</script>
+
+</body>
+
+Text field will be reseted after pressing reset button.
+
+2)onfocusin Event: This event is triggered when the element is about to get the focus.
+
+<body>
+Enter your name: <input type="text" onfocusin="myFunction(this)">
+
+<script>
+    function myFunction(x) {
+        x.style.background = "green";
+    }
+</script>
+</body>
+
+when the user clicks on the input text field to type then color of the text field changes to green to get focus.
+
+
+
