@@ -1,0 +1,52 @@
+UIClass-July-7-2016 Homework 19 
+
+1)	Event propagation ?
+It determines in which order the elements receive the event. Suppose if we have an event listener on both parent and child element, and they are same event type, and we performed the event on child element. If we invoke an event listener on both parent, child element and suppose if we click on the child element, then the order event handler invocation happens is called event propagation.
+
+stopPropagation
+	In case of bubling 
+		-- all child event handler will be invoked
+	In case of capturing
+		-- all parent event handler will be invoked
+
+stopImmediatePropagation
+	-- only the first event hanlder will be invoked.
+
+2)	what is event bubbling?
+The event is first captured and handled by the innermost element and then it is propagated to outer elements.
+when clicked(event perfomed) on child
+		--> child event handler is invoked first
+		--> parent event handler is invoked next
+When the event is clicked and performed on a child then the child event handler is invoked first followed by parent event handler.
+Its value always set as false.
+syntax :
+		parentElement.addEventListener('eventtype', eventHandlerFunction, false); 
+			or
+		parentElement.addEventListener('eventtype', eventHandlerFunction);
+
+		childElement.addEventListener('eventtype', eventHandlerFunction);
+
+	
+3)	what is event capturing?
+when clicked(event perfomed) on child
+	--> parent event handler is invoked first
+	--> child event handler is invoked next
+The event is first captured by the outermost element and then propagated to the inner elements. When the event is performed, or clicked on a child then the parent event handler is invoked first followed by the child event handler. Its value always set as True.
+syntax 
+		parentElement.addEventListener('eventtype', eventHandlerFunction, true);
+		childElement.addEventListener('eventtype', eventHandlerFunction);
+	
+4)	ECMA Script?
+ECMAScript is a standard for scripting language.
+JavaScript language is based on the ECMAScript. Mainly the core features are based on ECMAScript standard.
+
+5)	ECMA Script 6 features, how to use them?
+Below I have mentioned few ECMAScript features:
+	Arrows: are a function shorthand using the => syntax. Arrows share the same lexical this as their surrounding code. 
+	Classes: they support prototype-based inheritance, super calls, instance and static methods and constructors. 
+	Enhanced object literals: they support setting the prototype at construction, shorthand for foo. 
+	Template strings: it allows for string construction to be customized. 
+	Destructing: allow binding using pattern matching, with support for matching arrays and objects. 
+	Generators: simplify iterator-authoring using function* and yield. 
+	Symbols: enable access control for object state. They allow properties to be keyed by either string or symbol. 
+	Promises: are a library for synchronous programming.
