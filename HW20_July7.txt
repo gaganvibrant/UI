@@ -1,0 +1,102 @@
+1)	differences between stop propagation and stop immidiate propagation
+->event.stopPropagation():
+Prevents further propagation of the current event in the capturing and bubbling phases.
+In the below program  if we click on inner element it will print only inner element and it will prevent bubbling phase, so it will not print outer element. 
+In case of bubbling all the child event handler will be invoked first. On the other hand, in case of capturing, all the parent event handler will be invoked first. 
+->stop immidiate propagation:
+If several listeners are attached to the same element for the same event type, they are called in order in which they have been added. If during one such call, event.stopImmediatePropagation() is called, no remaining listeners will be called.
+In the below example it will only print "box" and it prevents execution of further events handlers.
+ prevents other event listeners of same element being called. In other words, only the first event will be invoked. For example:
+
+<!Doctype html>
+<html>
+    <head>
+        <title>StopPropagationExample ! </title>
+        <style>
+        #wrapper{
+            
+                display: flex;
+                align-items:center;
+                justify-content:center;
+                width:400px;
+                height:400px;
+                border: 3px dashed yellowgreen;
+            }
+            
+            #box{
+                width:150px;
+                height:150px;
+                border:  3px dashed green;
+        }
+        </style>
+    </head>
+    <body>
+        <div id='wrapper'>
+            <div id='box'></div>
+        </div>
+<script>
+
+function wrapperClick(event){
+    console.log('wrapper');
+    event.stopPropagation();
+}
+function boxClick(event){
+    console.log('box');
+    event.stopPropagation();
+     event.stopImmediatePropagation();
+
+}
+function boxClick1(event){
+    console.log('box1');
+    event.stopPropagation();
+    
+}
+//function stopPropagation(ev){
+   // ev.stopPropagation();
+//}
+//document.querySelector('#box').addEventListener('mousdown',boxClick,false);
+//document.querySelector('#wrapper').addEventListener('mousdown',wrapperClick,false);
+document.querySelector('#wrapper').addEventListener('click',wrapperClick,false);
+document.querySelector('#box').addEventListener('click',boxClick,false);
+document.querySelector('#box').addEventListener('click',boxClick1,false);
+</script>
+
+</body>
+</html>
+
+2) jQuery?
+jQuery is a JavaScript Library that focus on simplify DOM, AJAX, and Event control.
+Library -- its has a lot of helper methods
+	1.x -- ie 6,7,8 , all modern browsers
+	2.x -- only ie 9 and above are supported
+	3.x
+We have to download and include:
+cdn -- content delivery network
+	we can download from internet and include directly in the page
+	1)uncompressed -- .js -- 287 kb
+	2)compressed version  -- .min.js -- 95kb -- no comments -- variable names are shortedned, spaces are removed
+
+	we will use uncompressed version for development -- if we need to perform debugging or understand what some code is doing?
+                we will use compressed version for  production 
+		-- file size is really less. 
+		-- light weight
+		-- fast to download an execute
+		-- web page performance will be a lot better.
+
+•	It is a Javascript library with lot of helper methods.  It is easy to learn and simplifies Javascript programming. There is a compresses and uncompressed version for the JQuery. The compresses version which is a production is much better because it is light weight, file size is less, fast to download and web page performance is much better. In order to use JQuery $() or JQuery() function is used. The syntax : $(selector expression). The selectors of the JQuery are specified like this:
+	selection by Id:
+		-- prepend with hash
+		$('#idName')
+
+
+	selection by classname:
+		-- prepend with a .
+		$('.className')
+
+
+                 selection by tagName:
+		-- directly use the tagName
+		$('tagName')
+
+
+3) jQuery selector(basic, attribute, filter(basic, child), hirarecal filter, ...) all selectors
