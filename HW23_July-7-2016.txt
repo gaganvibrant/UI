@@ -1,0 +1,138 @@
+UIClass-July-7-2016 Homework 23 
+
+1)	nth-child vs nth-of-type explain with examples 
+nth-of-child() selector: this selector will select all elements that are the nth-child of their parent, regardless of type.
+nth-of-type() selector: this selector will select all elements that are the nth of child, of a particular type, of their parent or it will select nth child of their parent in relation to siblings with the same element name
+nth-child: Selects all elements that are the nth-child of their parent.
+Implementation of :nth- selector is strictly derived from the CSS specification so value of n is  “1-indexed”.Counting starts at 1.
+Example:
+<ul>
+  <li>
+<li>
+In this $( "li:nth-child(1)" ) selects the first <li> while $( "li:eq(1)" ) selects the second.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nth-child demo</title>
+  <style>
+  button {
+    display: block;
+    font-size: 12px;
+    width: 100px;
+  }
+  div {
+    float: left;
+    margin: 10px;
+    font-size: 10px;
+    border: 1px solid black;
+  }
+  span {
+    color: blue;
+    font-size: 18px;
+  }
+  #inner {
+    color: red;
+  }
+  td {
+    width: 50px;
+    text-align: center;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <button>:nth-child(even)</button>
+  <button>:nth-child(odd)</button>
+  <button>:nth-child(3n)</button>
+  <button>:nth-child(2)</button>
+</div>
+<div>
+  <button>:nth-child(3n+1)</button>
+  <button>:nth-child(3n+2)</button>
+  <button>:even</button>
+  <button>:odd</button>
+</div>
+ 
+<div>
+  <table>
+    <tr><td>INDIA</td></tr>
+    <tr><td>UK</td></tr>
+    <tr><td>USA</td></tr>
+    <tr><td>CHINA</td></tr>
+  </table>
+</div>
+<div>
+  <table>
+    <tr><td>World</td></tr>
+  </table>
+</div>
+<div>
+  <table>
+    <tr><td>RAM</td></tr>
+    <tr><td>RAHUL</td></tr>
+    <tr><td>RAVI</td></tr>
+    <tr><td>SAI</td></tr>
+    <tr><td>VENKAT</td></tr>
+    <tr><td>AJAY</td></tr>
+  </table>
+</div>
+ 
+<span>tr<span id="inner"></span></span>
+ 
+<script>
+$( "button" ).click(function() {
+  var str = $( this ).text();
+  $( "tr" ).css( "background", "white" );
+  $( "tr" + str ).css( "background", "#ff0000" );
+  $( "#inner" ).text( str );
+});
+</script>
+ 
+</body>
+</html>
+
+nth-of-type: Selects all elements that are the nth child of their parent in relation to siblings with the same element name. Its index starts from 1. For other selector expressions such as :eq() or :even jQuery follows JavaScript's "0-indexed" counting.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nth-of-type demo</title>
+  <style>
+  .nth {
+    color: red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <span>div_span1</span>,
+  <b>b</b>,
+  <span>div_span2</span>,
+  <b>b</b>,
+  <span>div_span3</span>
+</div>
+<div>
+  <b>b</b>,
+  <span>div2_span</span>
+</div>
+<div>
+  <i><span>div3_i_span</span></i>,
+  <span>div3_span1</span>,
+  <span>div3_span2</span>,
+  <span>div3_span3</span>
+</div>
+ 
+<script>
+$( "span:nth-of-type(2)" )
+  .append( "<span> is 2nd sibling span</span>" )
+  .addClass( "nth" );
+</script>
+ 
+</body>
+</html>
+
