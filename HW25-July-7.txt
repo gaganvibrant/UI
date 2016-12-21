@@ -1,0 +1,80 @@
+ UIClass-July-7-2016 Homework 25
+
+1) look what is a rest ful web services ?
+
+REST stands for “Representational State Transfer”. It is not a protocol, instead it is a set of guidelines which talk about how a client should interact with a server. The combination of REST + Web services is called a RESTful web services. It directly rides on the HTTP protocol in order to send data from point A to point B. Web services are online apis that developers can call from their code in order to read or access data or post data. They work very similar to website. In simple terms, the client will send the HTTP request to the server and then the server will send the HTTP response back in the form of XML, json, plain text or html. Each content in the REST is treated like a resource. Each resource is identified by a unique identifier (URIs)/ global IDs. Server is views as a set of resources and can be access by using URIs. 
+ rest used -->  backend <--> backend commmunication or frontend --> backend communication
+						--> browser can request info, server can respond to it.
+						--> we need a URL, we need HTTP method, request and response formats are to be known
+-- producing -- server side (java, nodejs, dot net)
+	-- consuming -- (AJAX) -- here you only consuming from client --> browser 
+
+status code:
+200(succesful) , 201 (created)
+400(bad request)
+401(authorization)
+403(forbidden or authentucation)
+404 (not found)
+500 -- server error
+
+2) how can you consume rest ful web services ?
+From JavaScript, we try to consume REST web services to get data and show it on the user interface.
+Without refreshing the web page, we can get and show data using AJAX (Asynchronous Javascript and XML). 
+when using ajax we need URL 
+
+3) what is get, put, post and delete http methods?
+Get: used to retrieve data from the server
+Post: create a new record or data 
+Put: update existing record 
+Delete: remove a data 
+
+http methods:
+
+GET:
+
+ Get method is used to request data from a specific resource
+ GET request scan be cached
+ GET request remain in the browser history
+ GET request can be bookmarked
+ GET request should never be used when dealing with sensitive data
+ GET request has length restrictions
+ GET requests should be used only to retreive data
+
+POST:
+
+ POST submits data to be processed to a specific resources
+ POST requests are never cached
+ POST requests do not remain in the browser history
+ POST request cannot be bookmarked
+ POST requests have no restrictions on data length
+
+
+PUT:
+
+ PUT uploads a representation of specified URI
+ PUT is idempotent so if you PUT an object twice it has no effect
+ you can update or create a resources with PUT using same object URI
+
+
+DELETE:
+
+ DELETE is used to delete a specific resources from the data base.
+
+
+PATCH:
+
+ PATCH can be used to update partial resources
+ PATCH is neither safe nor idempotent
+
+
+4) $.ajax
+ajax() method provides ajax functionality in JQuery.
+It sends asynchronous requests to the server. The syntax is :
+$.ajax(url,[options]	
+AJAX is a client-side script that communicates to and from a server or database without the need for a postback or a complete page refresh.
+ AJAX is a technique for creating better , faster and more interative web applications with the help of XMl,HTML,CSS,javaScript
+AJAX - is a Asynchronous JavaScript and Xml.
+
+5) Please parctice get, put, post and delete method call on url  http://rest.learncode.academy/api/johnbob/friends/
+using  $.ajax
+
