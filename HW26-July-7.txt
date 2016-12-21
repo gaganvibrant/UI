@@ -1,0 +1,135 @@
+Subject : UIClass-July-7-2016 Homework 26 
+1) Please parctice get, put, post and delete method call on url  http://rest.learncode.academy/api/johnbob/friends/
+using  $.ajax
+
+get:
+The get method will retrieve the data from the server and in this case it will bring the details of the id:585b06ecb725850100edc395 in the json format. 
+<head>
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+        	$(document).ready(function () {
+            
+            $.ajax("http://rest.learncode.academy/api/johnbob/friends/",
+                {
+                    method: 'get',
+                    dataType: 'json',
+                    success: function (resp) {
+                        console.log(resp);
+                    },
+                    error: function (error) {
+                        console.log("Error occured");
+                    }
+                }
+
+
+            );
+        })
+</script>
+</head>
+
+output:
+{
+"age": "27",
+"Name": "Testuser",
+"id": "585b06ecb725850100edc395"
+}
+--------------------------------------------------------------
+put :
+By using  put method we will update the existing record  detials as shown below by using  "id": "585afb4bb725850100edc392".
+{
+"name": "Testuser22",
+"age": "100",
+"id": "585afb4bb725850100edc392"
+},
+
+<head>
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+        $(document).ready(function () {
+       
+           $.ajax("http://rest.learncode.academy/api/johnbob/friends/585afb4bb725850100edc392",
+                {
+                    method: 'put',
+                    dataType: 'json',
+                    data: {
+"name": "Testuser22",
+"age": "100"
+
+},
+                    success: function (data) {
+
+                        console.log(data);
+                    },
+                    error: function (error) {
+                        console.log("Error occured");
+                    }
+                }
+
+
+            );
+})
+</script>
+</head>
+
+--------------------------------------------------------------
+Post:
+
+By using post method we will create the new record as shown below:
+ {
+"name": "Tester1",
+"age": "25",
+"id": "585b099db725850100edc396"
+}
+
+<head>
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+
+        $(document).ready(function () {
+            $.ajax("http://rest.learncode.academy/api/johnbob/friends",
+                {
+                    method: 'post',
+                    dataType: 'json',
+                    data: {"name": "Tester1",
+"age": "25"},
+                    success: function (data) {
+
+                        console.log(data);
+                    },
+                    error: function (error) {
+                        console.log("Error occured");
+                    }
+                }
+
+
+            );
+})
+
+</script>
+--------------------------------------------------------------
+delete :
+By using delete method we will delete or remove the record and now the record with id:585afbd8b725850100edc393 removed.
+<head>
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+        $(document).ready(function () {
+            $.ajax("http://rest.learncode.academy/api/johnbob/friends/585afbd8b725850100edc393",
+                {
+                    method: 'delete',
+                    dataType: 'json',
+                    data: {"name": "Enduser",
+"age": "23"},
+                    success: function (data) {
+
+                        console.log(data);
+                    },
+                    error: function (error) {
+                        console.log("Error occured");
+                    }
+                }
+
+
+            );
+})
+
+</script></head>
