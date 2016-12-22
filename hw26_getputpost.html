@@ -1,0 +1,71 @@
+<head>
+    <script  src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+<script>
+        	$(document).ready(function () {
+
+                //get method:            
+            $.ajax("http://rest.learncode.academy/api/johnbob/friends/585b06ecb725850100edc395",
+                {
+                    method: 'get',
+                    dataType: 'json',
+                    success: function (resp) {
+                        console.log(resp);
+                    },
+                    error: function (error) {
+                        console.log("Error occured");
+                    }
+                }
+
+
+            );
+        
+        //put method:
+        $.ajax("http://rest.learncode.academy/api/johnbob/friends/585afb4bb725850100edc392",
+                {
+                    method: 'put',
+                    dataType: 'json',
+                    data: {
+"name": "Enduser22",
+"age": "88"
+
+},
+                    success: function (data) {
+
+                        console.log(data);
+                    },
+                    error: function (error) {
+                        console.log("Error occured");
+                    }
+                }
+
+
+            );
+
+            //post method:
+            $.ajax("http://rest.learncode.academy/api/johnbob/friends",
+                {
+                    method: 'post',
+                    dataType: 'json',
+                    data: {"name": "end1",
+"age": "125"},
+                    success: function (data) {
+
+                        console.log(data);
+                    },
+                    error: function (error) {
+                        console.log("Error occured");
+                    }
+                }
+
+
+            );
+
+
+
+        
+        })
+</script>
+
+
+</head>
