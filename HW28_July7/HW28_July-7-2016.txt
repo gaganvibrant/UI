@@ -1,0 +1,120 @@
+UIClass-July-7-2016 Homework 28 
+
+1) write a custom filter using angular js? syntax , explain for al the possibility of parameters
+In AngularJS filters are added to format data. There are couple of different types of filters that AngularJS provides in order to transform data.
+Few of the filters are currency, date, filter, json, limito, lowercase, number, orderBy and uppercase. 
+
+Currency: is used to format a number to a currency format.
+Ex1: 
+In the below example, the output will come as Price: $100.00. The price is the expression followed by a pipe symbol and then come the filter currency.
+<!doctype html>
+<html >
+  <head>
+    <title>My Angular App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+  <body>
+<div ng-app="myApp" ng-controller="PriceCtrl">
+
+<h1>Price: {{ price | currency }}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('PriceCtrl', function($scope) {
+    $scope.price = 100;
+});
+</script></body>
+</html>
+
+-> Filter: will select subset of items from an array.
+Example:
+<!doctype html>
+<html >
+  <head>
+    <title>My Angular App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+<body>
+<div ng-app="myApp" ng-controller="lang_Ctrl">
+
+<ul>
+  <li ng-repeat="x in languages| filter : 'j'">
+    {{ x }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+angular.module('myApp', []).controller('lang_Ctrl', function($scope) {
+    $scope.languages = [
+        'JavaScript',
+        'Go',
+        'HTML',
+        'CSS',
+        'AngularJS',
+        'C Sharp',
+        'Cobol',
+        'Java',
+        'Jquery'
+    ];
+});
+</script></body>
+</html >
+In this example, languages that have “j” alphabet in them will be selected. The output will be:
+JavaScript
+AngularJS
+Java
+Jquery
+
+
+2) why do we use directives?
+In AngularJS, the extension of HTML with new attributes is known as Directives. 
+AngularJS has built-in directives which offers functionality to our applications and we can define our own directives as well. 
+Few  built-in directives :
+ng-app which initializes an AngularJS application,
+ng-init which initializes application data,
+ng-model which binds the value of HTML controls (input, select, etc) to application data. 
+
+3) how to build custom directives (scope, restrict, link(scope, element, attrs), template and templateUrl)
+In AngularJS, the extension of HTML with new attributes is known as Directives.
+ Syntax for building custom directive is:
+angular.module(‘myApp’).directive (dir1’, function () {
+
+return {
+restrict: ECAM
+}
+});
+
+restrict : 'EACM'
+E -- element
+A -- attribute
+C -- css class
+M -- comment
+
+Restrict property determines where a directive can be used as an element, attribute, CSS class, or comment.
+
+Template property defines the content that should be output from the directive. 
+Can include HTML, data binding expressions, and even other directives. 
+
+TemplateURL property provides path to the template that should be used by the directive.
+It can optionally contain a DOM element id when templates are defined in <script> tags. 
+
+Controller property used to define the controller that will be associated with the directive template. 
+
+Link property function used for DOM manipulation tasks. 
+
+Scope property used to create a new child scope or an isolate scope. 
+shared -- default
+			--> it wil not have any independent scope. 
+			--> it scope will refer to the controller scope
+		isolate scope -- {}
+			--> model would be indepdenet of parent scope,
+			--> no inhertance of model from parent scope, or restricted access of model from parent scope.
+
+isolate scope 
+	@ -- read a value from attribute
+	= -- read a model from attribute
+	& -- read a function reference from attribute
+
