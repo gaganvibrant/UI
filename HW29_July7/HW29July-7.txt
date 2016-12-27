@@ -1,0 +1,142 @@
+ UIClass-July-7-2016 Homework 29 
+
+1) factory, service
+
+Factory - A factory is a simple function which allows you to add some logic before creating the object. It returns the created object.
+When to use: It is just a collection of functions like a class. Hence, it can be instantiated in different controllers when you are using it with constructor function.
+
+//define a factory using factory() function 
+
+app.factory('MyFactory', function () {
+ var serviceObj = {};
+ serviceObj.function1 = function () {
+ //TO DO: 
+};
+serviceObj.function2 = function () { 
+//TO DO: 
+}; 
+return serviceObj; 
+});
+
+factory:	The value we are providing needs to be calculated based on other data.
+mod.factory("myFactory", function() {
+    return 10;
+});
+
+factory
+	--> store data in a factory, communication
+	--> singleton -- only single object will be there in entire application
+	--> suppose if we want to have the data to be same across the entire application
+	--> share data between controllers.
+	
+	angular.module('myApp').factory('fac1', function() {
+		return  javaScriptDataType
+	})
+	angular.module('myApp').controller('FirstCtrl', ['$scope','fac1', function($scope, fac1){
+				
+	}])
+
+service:
+Service - A service is a constructor function which creates the object using new keyword. You can add properties and functions to a service object by using this keyword. Unlike factory, it doesn’t return anything.
+When to use: It is a singleton object. Use it when you need to share a single object across the application.
+For example, authenticated user details.
+
+//define a service using service() function
+
+app.service('MyService', function () {
+this.function1 = function () {
+//TO DO:
+};
+this.function2 = function () {
+//TO DO:
+};
+});
+
+We are returning an object with methods.
+mod.service("myService", function() {
+    var name = "Bob";
+    this.setName = function(newName) {
+        this.name = newName;
+    };
+    this.getName = function() {
+        return this.name;
+    }
+});
+        
+	--> helper methods
+	--> This is always give back object
+	--> utlity methods we want to write. 
+	--> we dont use a return keyword
+	--> any property you want to add, this.propertyName
+
+
+	syntax : 
+	angular.module('myApp').service('serv1', function(){
+		this.multiply = function(a,b) { // 
+			return a*b;
+		}
+	})
+	angular.module('myApp').controller('FirstCtrl', ['$scope','fac1','serv1', function($scope, fac1, serv1){
+		$scope.data = fac1;
+		console.log(serv1.multiply(2,3))
+	}])
+
+provider:	
+Provider - A provider is used to create a configurable service object. It returns value by using $get() function
+When to use: When you need to provide module-wise configuration for your service object before making it available.
+
+//define a provider using provider() function 
+app.provider('configurable', function () {
+var privateName = '';
+this.setName = function (newName) { 
+privateName = newName; 
+}; 
+this.$get = function () {
+ return { 
+name: privateName 
+}; }; });
+ //configuring provider using config() function 
+app.config(function (configurableService) { 
+configurableService.setName('www.angular.com'); 
+});
+
+
+You want to be able to configure, during the config phase, the object that is going to be created before it’s created.
+mod.provider("greeter", function() {
+    var name;
+
+    this.setName = function(newName) {
+        name = newName;
+    };
+
+    this.$get = function() {
+        return new function() {
+            this.sayHi = function() {
+                console.log("Hi " + name;
+            };
+        };
+    };
+});
+
+mod.config(function(greeterProvider) {
+    greeterProvider.setName(“John");
+});
+
+2) Depency Injection
+It is a software design pattern that deals with how components get hold of their dependencies. AngularJS comes with a built-in dependency injection mechanism.
+The Angular injector subsystem is in charge of creating components, resolving their dependencies, and providing them to other components as requested.
+We can divide an application into multiple different types of components which AngularJS can inject into each other. 
+Modularizing the application makes it easier to reuse, configure and test the components of the application.
+It contains the following core types of objects and components: value, factory, service, provider and constant. 
+These core types can be injected into each other using AngularJS dependency injection mechanism.  
+For example, we can inject dependencies while creating a module as given below: 
+angular.module('myapp', ['someDependency1','someDependency2']).config();
+
+3) singleton design pattern.
+singleton -- only single object will be there in entire application
+	--> suppose if we want to have the data to be same across the entire application
+	--> share data between controllers.
+
+References:
+https://docs.angularjs.org/guide/services
+http://www.simplygoodcode.com/2015/11/the-difference-between-service-provider-and-factory-in-angularjs/
