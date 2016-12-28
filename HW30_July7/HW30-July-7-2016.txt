@@ -1,0 +1,76 @@
+ UIClass-July-7-2016 Homework 30
+
+1)When we use promises?
+The purpose of the promise object is it allow for interested parties to get access to the result of the deferred task when it completed and can be retrieved by calling deferred.promise. It provides a way to execute asynchronous functions in series by registering them with a promise object. The .then() method calls one of the success or error callbacks asyncrhonosly as soon as the result is avliabale and .finally() method allows to observe either the fulfillment or reject or a promise, but it does so without modifying the final value. 
+
+A promise has three states, pending, resolved or rejected. Using $q in Angular, we can construct our own promises.
+$q
+	--> promise library
+	--> synchronous -- it would be immediately invoked
+	--> asynchronous -- it would invoked after the current scripted has been completed will execute the task.
+	--> promise asynchronous operation
+	--> if you call both resolve and reject, only one of them will be executed. which is called the first.
+	--> 
+
+
+	status 
+		-- 0 -- waiting
+		-- 1 -- resolved
+		-- 2 -- rejected
+	method
+		.resolve()
+		.reject()
+		.promise.then(function(){}, function(){})
+
+$q is a service that helps you to run functions asynchronously, and use their return values when they have done processing.
+$q service is said to be inspired by Chris Kowal's Q library which allow users to monitor asynchronous progress by providing a "promise" as a return from a call.
+It is good when you need to process a number of asynchronous activities simultaneously. The $q.all() function lets you trigger several callbacks at the same time, and use a single then function to join them all together.
+
+var first = $http.get("/app/data/first.json"),
+ second = $http.get("/app/data/second.json"), 
+third = $http.get("/app/data/third.json");
+ $q.all([first, second, third]).then(function (result) {
+ var tmp = [];
+ angular.forEach(result, function (response) { 
+tmp.push(response.data);
+ }); 
+return tmp; 
+}).then(function (tmpResult) { 
+$scope.combinedResult = tmpResult.join(", "); 
+});
+
+2)What is promise chaining? Why it is helpful?
+Calling the then method of a promise returns a new derived promise. This is helpful because you can create a chain of promises. The chain can be any length, it is also possible to pause/defer resolution of the promises at any point in the chain. In summary, promise chains will call the next ‘then’ in the chain and then return value of the previous ‘then’ callback. If ‘then’ callback returns a promise object, the next ‘then’ will only execute if/when that promise resolves. A final ‘catch’ method at the end of the chain will provide a single error handling. A ‘finally’ method at the end of the chain will always be executed whether or not the promise is resolved or rejected. Here is the simple promise chaining example:
+
+var deferred = $q.defer();
+var promise = deferred.promise;
+
+promise
+.then(function(val) {
+console.log(val);
+return 'Promising';
+})
+.then(function(val) {
+console.log(val);
+return 'World'
+})
+.then(function(val) {
+console.log(val);
+});
+
+deferred.resolve('Hello');
+
+The output of this console will be “Hello” “Promising” “World”. 
+-------------
+
+promiseB = promiseA.then(function(result) {
+  return result + 1;
+});
+
+It is possible to create chains of any length and since a promise can be resolved with another promise (which will defer its resolution further), it is possible to pause/defer resolution of the promises at any point in the chain. This makes it possible to implement powerful APIs like $http's response interceptors.
+
+References
+•	https://docs.angularjs.org/api/ng/service/$q
+•	https://thinkster.io/a-better-way-to-learn-angularjs/promises
+•	http://blog.xebia.com/promises-and-design-patterns-in-angularjs/
+•	http://solutionoptimist.com/2013/12/27/javascript-promise-chains-2/
